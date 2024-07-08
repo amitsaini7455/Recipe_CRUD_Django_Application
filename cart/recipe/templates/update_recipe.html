@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block start %}
+
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<style>
+  .text {
+    color: green;
+    font-weight: bold;
+  }
+</style>
+
+<div class="container mt-5">
+
+  <form class="col-6 mx-auto card p-3 shadow-lg" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <h2 class="text text-center"> Food Cart </h2>
+     
+    <h3>Update Recipe</h3> 
+    <hr>
+    <div class="form-group">
+      <label for="recipe_name">Recipe name</label>  
+      <input name="recipe_name" value="{{recipe.recipe_name}}" type="text" class="form-control" required>  
+    </div>
+    <div class="form-group">
+      <label for="recipe_description">Recipe description</label>  
+      <textarea name="recipe_description" class="form-control" required>{{recipe.recipe_description}}</textarea> 
+    </div>
+    <div class="form-group">
+      <label for="recipe_image">Recipe Image</label> 
+      <input name="recipe_image" type="file" class="form-control">
+    </div>
+ 
+    <button type="submit" class="btn btn-success">Update Recipe</button>  <!-- Corrected button text -->
+  </form>
+
+</div>
+
+{% endblock %}
